@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    
+</head>
+<body>
+    <script defer src="{% static 'bootstrap.min.js' %}"></script>
+    <header>
+        {% if request.user.is_authenticated %}
+            <nav>
+                <div class="profile">
+                    <img src="{% static user.user_image %}" alt="">
+                </div>
+                <div class="title">
+                    <div class="text">
+                        <h1>Hello {{ request.user.username }}! Welcome to Keniy Quiz </h1>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="{% url 'logout' %}">LogOut</a>
+                </div>
+            </nav>
+        </header>
+            <div class="tops">
+                <div class="lab">
+                    <label>
+                        <a href="{% url 'rank' %}">Ranking</a>
+                    </label>
+                </div>
+                <div class="posi">
+                    {% for person in rank %}
+                    <div class="one">
+                        <div class="pos pos2">
+                            <img src="{% static person.user_image %}" alt="{{ person.user_image }}">
+                        </div>
+                        <div class="top_info">
+                            <p>
+                                Name: <label class="dat"> {{ person.username }}</label>
+                            </p>
+                            <p>
+                                Quiz: <label class="dat">{{ person.quiz }}</label>
+                            </p>
+                            <p>
+                                Score: <label class="dat">{{ person.score }} pts</label>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+            </div>
+            <div class="questions">
+                <div class="head">
+                    <h1>Quiz Categories</h1>
+                </div>
+                <div class="pin">
+                    <div> 
+                        <ol>
+                            {% for category in quiz %}
+                                <li class="cat">
+                                    <div class="quest">
+                                        <a href="{% url 'answering' quiz_id=category.id %}" id="Link">{{ category }}
+                                            <label for="Link">Start</label>
+                                        </a>
+                                        <p class="descrip">
+                                            {{ category.description }}
+                                        </p> 
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <header>
+                <nav>
+                    <div class="title">
+                        <div class="text">
+                            <h1>Welcome to Keniy Quiz </h1>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div class="tops">
+                <div class="lab">
+                    <label>
+                        <a href="{% url 'rank' %}">Ranking</a>
+                    </label>
+                </div>
+                <div class="posi">
+                    {% for person in rank %}
+                    <div class="one">
+                        <div class="pos pos2">
+                            <img src="{% static person.user_image %}" alt="{{ person.user_image }}">
+                        </div>
+                        <div class="top_info">
+                            <p>
+                                Name: <label class="dat">{{ person.username }}</label>
+                            </p>
+                            <p>
+                                Quiz: <label class="dat">{{ person.quiz }}</label>
+                            </p>
+                            <p>
+                                Score: <label class="dat">{{ person.score }} pts</label>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+            <div class="call">
+                <p>
+                    Sorry you can't take part in any quiz until you have an account and logged In
+                </p>
+                <div>
+                    <a href="{% url 'register' %}">Register</a>
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+            </div>
+        {% endif %}
+    <footer>
+        <h1>Copyright(c) 2024</h1>
+    </footer>
+</body>
+</html>

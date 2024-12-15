@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css'%}">
+</head>
+<body>
+    <div class="content">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="wel">
+                <h1>Register</h1>
+            </div>
+            {% for fields in registration_form %}
+            <p>{{ fields }}</p>
+            {% for error in fields.errors %}
+                {{error}}
+            {% endfor %}
+            {% endfor %}
+            <div class="but">
+                <input type="submit" value="Register" id="submit">
+                <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<body>
+    <form action="" method="POST">
+        <div class="content">
+            <div class="wel">
+                <h1>Login</h1>
+            </div>
+            {% csrf_token %}
+            {% for field in login_form %}
+                <p>{{ field }}</p>
+            {% endfor %}
+            {% for error in field.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            {% if login_form.non_field_errors %}
+                {{ login_form.non_field_errors }}
+            {% endif %}
+            <div class="but">
+                <input type="submit" value="Log In" id="submit">
+                <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

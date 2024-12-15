@@ -1,0 +1,244 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(18, 18, 19);
+    justify-content: center;
+    text-align: center;
+}
+header nav{
+    font-size: 1.3rem;
+    padding: 20px;
+    background-color: #11e918;
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 12px;
+    color: white;
+}
+.tops{
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 80px;
+}
+.tops .posi{
+    display: flex;
+    justify-content: space-around;
+}
+.tops .lab{
+    width: 100%;
+    text-align: left;
+}
+.tops .lab label{
+    padding: 10px;
+    background-color: #11e918;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 12px;
+}
+.tops .posi div .pos{
+    background-color: #11e918;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 50%;
+    color: white;
+}
+.pos2 img{
+    width: 200px;
+    border-radius: 50%;
+}
+.tops .posi div  .pos1{
+    width: 300px;
+    border-radius: 50%;
+    font-size: 7rem;
+    height: 300px;
+    box-shadow: 2px 2px 12px  #a8e7aa;
+}
+.tops .top_info{
+    border: 2px solid #11e918;
+    border-radius: 12px;
+    color: white;
+    margin-top: 10px;
+    line-height: 25px;
+    padding: 10px;
+}
+.top_info .dat{
+    color: #11e918;
+    font-size: 1.2rem;
+}
+
+.call{
+    background-color: #11e918;
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 80px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    font-size: 0.8rem;
+}
+.call div{
+    margin: 20px;
+}
+.call p{
+    font-size: 1.3rem;
+}
+.call div a{
+    background-color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+.call div a:hover{
+    background-color: white;
+    color: black;
+}
+footer{
+    height: 150px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    margin-top: 80px;
+    padding: 10px;
+}
+footer h1{
+    margin-top: 40px;
+    border: 2px solid black;
+    font-size: 1.4rem;
+}
+
+nav .user_info{
+    display: flex;
+    justify-content: space-between;
+}
+nav .profile{
+    background-color: white;
+    padding: 2px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+
+}
+.tops .lab label a{
+    text-decoration: none;
+}
+nav .profile img{
+    width: 80px;
+    border-radius: 50%;
+    
+}
+nav .links a{
+    background-color: rgb(18, 18, 19);
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+    transition: .5s;
+}
+nav .links a:hover{
+    background-color: white;
+    color: black;
+}
+.questions{
+    width : 60%;
+    box-shadow: 1px 1px 5px white;
+    margin: 0px auto;
+    margin-top: 80px;
+    padding-bottom: 10px;
+    border-radius: 12px;
+}
+.questions .head{
+    background-color: #11e918;
+    border-radius: 12px 12px 0px 0px;
+    padding: 10px;
+    color: white;
+}
+.questions .pin{
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
+.questions .pin div ol{
+    list-style: none;
+}
+.questions .pin div ol li{
+    margin: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.questions .pin div ol li a{
+    color: #11e918;
+
+}
+.questions .pin div ol li .descrip{
+    color: gray;
+}
+.questions .pin div ol .cat{
+    display: flex;
+    justify-content: space-between;
+}
+.cat .quest{
+    position: relative;
+    width: 100%;
+}
+.cat label{
+    position: absolute;
+    right: 1rem;
+    background-color: #11e918;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #11e918;
+    color: white;
+    transition: .5s;
+}
+.cat label:hover{
+    background-color: white;
+    color: black;
+}
+
+
+@media (max-width: 440px){
+    .tops .posi .one{
+        display: none;
+        font-size: 1rem;
+        width: 50px;
+    }   
+    .tops .posi{
+        text-align: center;
+        justify-content: center;
+    }
+    .tops .posi div .pos1{
+        font-size: 2rem;
+        height: 100px;
+        margin: 0px auto;
+        width: 100px;
+    }
+    header nav{
+        width: 100%;
+        font-size: 1rem;
+    }
+    header nav .title{
+        width: 60%;
+    }
+    nav .profile img{
+        width: 50px;
+    }
+    .tops .top_info{
+        width: 200px;
+    }
+    .questions{
+        width: 90%;
+    }
+    header nav{
+        margin: 0px;
+    }
+}

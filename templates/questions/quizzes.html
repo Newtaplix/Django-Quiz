@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    <link rel="stylesheet" href="{% static 'css/quest.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="profile">
+                <img src="{% static request.user.user_image %}" alt="{{ user.user_image }}">
+            </div>
+            <div class="links">
+                <a href="{% url 'logout' %}">LogOut</a>
+            </div>
+        </nav>
+    </header>
+   <form action="" method="POST">
+        {% csrf_token %}
+        {% for quest in question %}
+        <div class="content">
+            <div class="qustion">
+                <p>
+                    {{ quest }}
+                </p>
+            </div>
+            
+            <div class="ans">
+                {% for option in ans %}
+                {% if option.question.text == quest.text %}
+                    <div class="opt">
+                        <input type="radio" id="{{ option.id }}" value="{{ option }}" name="{{ option.question }}">
+                        <div class="choice">
+                            <label for="{{option.id}}"> {{ option }}</label>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <div class="but">
+                <div class="rep">
+                    <p>{{ submitted }}</p>
+                </div>
+                <div class="buts">
+                    {% if question.has_next %}
+                        <div>
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div>
+                            <a href="?page={{ question.next_page_number }}">
+                                Next
+                            </a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div>
+                            <a href="{% url 'done' %}">Done</a>
+                        </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+   </form>
+</body>
+</html>

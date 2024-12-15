@@ -1,0 +1,14 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.3rem;
+}
+.user_info{
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+}
+.user_info .profile img{
+    width: 100px;
+    border-radius: 50%;
+}

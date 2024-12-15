@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+</head>
+<body>
+    <div class="welcome">
+        <div class="head">Quiz Ranking</div>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <th>SN</th>
+                <th>Profile</th>
+                <th>Player Name</th>
+                <th>Quiz Name</th>
+                <th>Score</th>
+            </thead>
+           <tbody>
+            {% for player in rank %}
+                <tr>
+                    <td>
+                        {{ forloop.counter }}
+                    </td>
+                    <td>
+                        <img src="{% static player.user_image %}" alt="">
+                    </td>
+                    <td>
+                        {{ player.username}}
+                    </td>
+                    <td>
+                        {{ player.quiz }}
+                    </td>
+                    <td>
+                        {{ player.score }}
+                    </td>
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+    </div>
+</body>
+</html>
